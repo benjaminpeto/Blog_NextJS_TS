@@ -1,0 +1,22 @@
+.title span {
+	color: #0079eb;
+	text-decoration: none;
+}
+
+.title {
+	line-height: 1.15;
+	font-size: 4rem;
+	letter-spacing: -3px;
+}
+
+.title,
+.description {
+	text-align: center;
+}
+
+.description {
+	margin: 1rem 0;
+	line-height: 1.5;
+	letter-spacing: 1px;
+	font-size: 1.5rem;
+}
