@@ -1,13 +1,14 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
+import PostList from "../components/PostList";
 
 import styles from "../styles/Layout.module.css";
 
-interface IPost {
+export interface IPost {
 	posts: PostType[];
 }
 
-type PostType = {
+export type PostType = {
 	userId: number;
 	id: string;
 	title: string;
@@ -20,9 +21,7 @@ const Home = ({ posts }: IPost) => {
 			<Head>
 				<title>Dev News</title>
 			</Head>
-			{posts.map((post) => (
-				<h3 key={post.id}>{post.title}</h3>
-			))}
+			<PostList posts={posts} />
 		</div>
 	);
 };
