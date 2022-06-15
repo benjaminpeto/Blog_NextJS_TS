@@ -1,27 +1,53 @@
 //import { useRouter } from "next/router";
-import { GetServerSideProps, GetServerSidePropsContext } from "next";
-import { SinglePostType } from "../../../components/PostItem";
+import { GetStaticPaths, GetStaticProps } from "next";
+import { ParsedUrlQuery } from "querystring";
 
-const Post = ({ post }: SinglePostType) => {
-	// const router = useRouter();
-	// const { id } = router.query;
+interface IParams extends ParsedUrlQuery {
+	id: string;
+}
 
-	return <div>This is article number ${post.id}</div>;
+interface PostDataProps {
+	data: {
+		userId: string;
+		id: string;
+		title: string;
+		body: string;
+	};
+}
+
+// ERROR - 404
+
+const Post = ({ data }: PostDataProps) => {
+	return <div>This is article number ${data.id}</div>;
 };
-//fix context props!
-export const getServerSideProps: GetServerSideProps = async ({
-	context,
-}: GetServerSidePropsContext) => {
-	const res = await fetch(
-		`https://jsonplaceholder.typicode.com/posts/${context.params.id}`
-	);
 
-	const post: SinglePostType = await res.json();
+export const getStaticProps: GetStaticProps<PostDataProps, IParams> = async ({
+	params,
+}) => {
+	const res = await fetch(
+		`https://jsonplaceholder.typicode.com/posts/${params!.id}`
+	);
+	const data = await res.json();
 
 	return {
 		props: {
-			post,
+			data,
 		},
+	};
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+	const res = await fetch(`https://jsonplaceholder.typicode.com/posts/`);
+	const data = await res.json();
+
+	const ids = data.map((ids: string[]) => ids);
+	const paths: [] = ids.map((id: string) => ({
+		params: { id: id.toString() },
+	}));
+
+	return {
+		paths,
+		fallback: false,
 	};
 };
 

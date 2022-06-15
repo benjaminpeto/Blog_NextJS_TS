@@ -1,5 +1,6 @@
 import { GetStaticProps } from "next";
 import Head from "next/head";
+import { stringify } from "querystring";
 import PostList from "../components/PostList";
 
 import styles from "../styles/Layout.module.css";
@@ -32,7 +33,7 @@ export const getStaticProps: GetStaticProps = async () => {
 	const res = await fetch(
 		`https://jsonplaceholder.typicode.com/posts?_limit=10`
 	);
-	const posts: IPost[] = await res.json();
+	const posts: IPost = await res.json();
 
 	return {
 		props: {
