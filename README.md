@@ -2,8 +2,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 # Summary
 
-The project includes fetching a [FakeAPI](https://jsonplaceholder.typicode.com) endpoint for blog posts with the built-in `getServerSideProps` and rendering them on the main page. There you can choose the post you'd like to read, and with dynamic routing the single post will show up on their corresponding page.
-_The styling of this website remain the almost the same as your `create-next-app` would look like after initiation._
+The project includes fetching a [FakeAPI](https://jsonplaceholder.typicode.com) endpoint for blog posts with the built-in `getServerSideProps` and rendering them on the main page. There you can choose the post you'd like to read, and with dynamic routing the single post will show up on their corresponding pages.
+
+_The styling of this website remain almost the same as your `create-next-app` would look like after initiation._
 
 In this project, I learnt how to use `getServerSideProps`, `getServerSidePropsContext`, `getStaticProps`, `Layout`, `Link`, `Head`, `dynamic routes`, `css-modules` with **TypeScript** in NextJS.
 
