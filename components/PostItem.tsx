@@ -14,7 +14,7 @@ const PostItem = ({ post }: SinglePostType) => {
 	return (
 		<Link href="/posts/[id]" as={`/posts/${post.id}`}>
 			<a className={postStyle.card}>
-				<h3>{post.title} &rarr;</h3>
+				<h2>{post.title} &rarr;</h2>
 				<p>{post.body}</p>
 			</a>
 		</Link>

@@ -7,9 +7,8 @@ body {
 }
 
 a {
-	color: #0079eb;
-	text-decoration: underline;
-	font-size: 24px;
+	color: inherit;
+	text-decoration: none;
 }
 
 * {

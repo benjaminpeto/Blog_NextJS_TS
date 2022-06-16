@@ -1,5 +1,6 @@
 import { GetServerSidePropsContext } from "next";
 import Link from "next/link";
+import postItemStyle from "../../../styles/SinglePost.module.css";
 
 interface PostDataProps {
 	data: {
@@ -13,11 +14,11 @@ interface PostDataProps {
 const Post = ({ data }: PostDataProps) => {
 	return (
 		<div>
-			<h3>{data.title}</h3>
-			<p>{data.body}</p>
-			<div style={{ display: "flex", justifyContent: "center" }}>
+			<h3 className={postItemStyle.title}>{data.title}</h3>
+			<p className={postItemStyle.body}>{data.body}</p>
+			<div className={postItemStyle.container}>
 				<Link href="/">
-					<a>Back to Homepage</a>
+					<a className={postItemStyle.link}>Back to Homepage</a>
 				</Link>
 			</div>
 		</div>
